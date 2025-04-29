@@ -6,34 +6,19 @@ pipeline{
     stages{
         stage('checkout the code from github'){
             steps{
-                 git 'https://github.com/karthikpyati777/Banking-java-project.git'
+                 git 'https://github.com/Azharhashmi111/star-agile-banking-finance.git'
                  echo 'github url checkout'
             }
         }
-        stage('code compile with karthik'){
-            steps{
-                echo 'starting compiling'
-                sh 'mvn compile'
-            }
-        }
-        stage('code testing with karthik'){
-            steps{
-                sh 'mvn test'
-            }
-        }
-        stage('qa with karthik'){
-            steps{
-                sh 'mvn checkstyle:checkstyle'
-            }
-        }
-        stage('package with karthik'){
+        
+        stage('package with azharhashmi'){
             steps{
                 sh 'mvn clean package'
             }
         }
         stage('Build Docker image'){
           steps{
-               sh 'docker build -t karthik854/financeme:latest .'
+               sh 'docker build -t azharhashmi/financeme:latest .'
 
            }
          }
@@ -46,7 +31,7 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                   sh ' docker run -d -p 8090:8081 karthik854/financeme:latest'
+                   sh ' docker run -d -p 8090:8081 azharhashmi/financeme:latest'
             }
         } 
 
