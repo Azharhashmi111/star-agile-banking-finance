@@ -10,8 +10,8 @@ pipeline{
                  echo 'github url checkout'
             }
         }
-        
-        stage('package with azharhashmi'){
+       
+        stage('package with karthik'){
             steps{
                 sh 'mvn clean package'
             }
@@ -29,9 +29,9 @@ pipeline{
               }
            }
          }
-        stage('port expose'){
+        stage('Image push to Dockerhub'){
             steps{
-                   sh ' docker run -d -p 8090:8081 azharhashmi/financeme:latest'
+                   sh 'docker push azharhashmi/financeme:latest'
             }
         } 
 
@@ -42,6 +42,4 @@ pipeline{
       }
           
       }
-    
-    
-}
+}	
